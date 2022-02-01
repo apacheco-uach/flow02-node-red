@@ -1,18 +1,125 @@
 [
     {
+        "id": "c4e97ec17edef064",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "1c673bc31c374673",
+        "type": "inject",
+        "z": "c4e97ec17edef064",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "Comida_para_llevar",
+        "payloadType": "date",
+        "x": 130,
+        "y": 100,
+        "wires": [
+            [
+                "52f4c21081a866aa"
+            ]
+        ]
+    },
+    {
+        "id": "5a40ba9c3638ef1c",
+        "type": "debug",
+        "z": "c4e97ec17edef064",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 610,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "52f4c21081a866aa",
+        "type": "function",
+        "z": "c4e97ec17edef064",
+        "name": "",
+        "func": "// Crea un objeto Date a partir del payload enviado por timestamp\nvar date = new Date(msg.payload);\n// Cambia el payload para que sea una fecha con formato\nvar fmt = '2-digit';\nmsg.payload = date.toLocaleString(undefined, {\n    timeZone: 'America/Chihuahua',\n    day: fmt,\n    month: fmt,\n    year: fmt,\n    hour: fmt,\n    minute: fmt,\n    second: fmt,\n});\nmsg.food = 'Corte de carne Rib Eye';\nmsg.place = 'Chihuahua';\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 100,
+        "wires": [
+            [
+                "5a40ba9c3638ef1c",
+                "af22a056a9ee8ea8",
+                "c0ba28547e7a064b",
+                "f96217d11f4b168f"
+            ]
+        ]
+    },
+    {
         "id": "af22a056a9ee8ea8",
         "type": "ui_text",
         "z": "c4e97ec17edef064",
         "group": "a6a7faa88b64b8a7",
-        "order": 0,
-        "width": "6",
-        "height": "6",
+        "order": 3,
+        "width": "0",
+        "height": "0",
         "name": "",
         "label": "Fecha",
         "format": "{{msg.payload}}",
         "layout": "col-center",
         "x": 610,
         "y": 40,
+        "wires": []
+    },
+    {
+        "id": "c0ba28547e7a064b",
+        "type": "ui_text",
+        "z": "c4e97ec17edef064",
+        "group": "a6a7faa88b64b8a7",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "Food",
+        "label": "Pedido Comida",
+        "format": "{{msg.food}}",
+        "layout": "col-center",
+        "x": 610,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "f96217d11f4b168f",
+        "type": "ui_text",
+        "z": "c4e97ec17edef064",
+        "group": "a6a7faa88b64b8a7",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Lugar",
+        "format": "{{msg.place}}",
+        "layout": "col-center",
+        "x": 610,
+        "y": 120,
         "wires": []
     },
     {
