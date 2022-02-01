@@ -1,0 +1,23 @@
+[
+    {
+        "id": "52f4c21081a866aa",
+        "type": "function",
+        "z": "c4e97ec17edef064",
+        "name": "",
+        "func": "// Crea un objeto Date a partir del payload enviado por timestamp\nvar date = new Date(msg.payload);\n// Cambia el payload para que sea una fecha con formato\nvar fmt = '2-digit';\nmsg.payload = date.toLocaleString(undefined, {\n    timeZone: 'America/Chihuahua',\n    day: fmt,\n    month: fmt,\n    year: fmt,\n    hour: fmt,\n    minute: fmt,\n    second: fmt,\n});\nmsg.food = 'Corte de carne Rib Eye';\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 100,
+        "wires": [
+            [
+                "5a40ba9c3638ef1c",
+                "af22a056a9ee8ea8",
+                "c0ba28547e7a064b"
+            ]
+        ]
+    }
+]
