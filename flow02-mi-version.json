@@ -1,23 +1,37 @@
 [
     {
-        "id": "52f4c21081a866aa",
-        "type": "function",
+        "id": "af22a056a9ee8ea8",
+        "type": "ui_text",
         "z": "c4e97ec17edef064",
+        "group": "a6a7faa88b64b8a7",
+        "order": 0,
+        "width": "6",
+        "height": "6",
         "name": "",
-        "func": "// Crea un objeto Date a partir del payload enviado por timestamp\nvar date = new Date(msg.payload);\n// Cambia el payload para que sea una fecha con formato\nvar fmt = '2-digit';\nmsg.payload = date.toLocaleString(undefined, {\n    timeZone: 'America/Chihuahua',\n    day: fmt,\n    month: fmt,\n    year: fmt,\n    hour: fmt,\n    minute: fmt,\n    second: fmt,\n});\nmsg.food = 'Corte de carne Rib Eye';\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 400,
-        "y": 100,
-        "wires": [
-            [
-                "5a40ba9c3638ef1c",
-                "af22a056a9ee8ea8",
-                "c0ba28547e7a064b"
-            ]
-        ]
+        "label": "Fecha",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "x": 610,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "a6a7faa88b64b8a7",
+        "type": "ui_group",
+        "name": "Fecha-Pedido",
+        "tab": "e6bae989f89a14a2",
+        "order": 2,
+        "disp": false,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "e6bae989f89a14a2",
+        "type": "ui_tab",
+        "name": "Flow02",
+        "icon": "dashboard",
+        "order": 4,
+        "disabled": false,
+        "hidden": false
     }
 ]
